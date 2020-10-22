@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="541dp"
+        android:layout_weight="1"
+        android:background="#c8cbfd">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="#000000"
+            android:paddingLeft="100dp"
+            android:paddingTop="3dp"
+            android:text="카드기억 게임"
+            android:textSize="35dp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF">
+        </TextView>
+
+        <Button
+            android:id="@+id/btn_rk"
+            android:layout_width="50dp"
+            android:layout_height="45dp"
+            android:layout_marginLeft="340dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/rk_btn" />
+
+        <TableLayout
+            android:layout_width="410dp"
+            android:layout_height="300dp"
+            android:layout_marginTop="150dp"
+            android:id="@+id/tb_card"
+            android:visibility="invisible"
+            android:gravity="center"
+            android:paddingLeft="15dp">
+            
+
+            <TableRow>
+
+                <Button
+                    android:id="@+id/c1"
+                    android:background="@drawable/card_img" />
+
+                <Button
+                    android:background="@drawable/card_img"
+                    android:id="@+id/c2"/>
+                <Button
+                    android:background="@drawable/card_img"
+                    android:id="@+id/c3"/>
+                <Button
+                    android:background="@drawable/card_img"
+                    android:id="@+id/c4"/>
+            </TableRow>
+
+            <TableRow>
+                <Button
+                    android:background="@drawable/card_img"
+                    android:id="@+id/c5"/>
+                <Button
+                    android:background="@drawable/card_img"
+                    android:id="@+id/c6"/>
+                <Button
+                    android:background="@drawable/card_img"
+                    android:id="@+id/c7"/>
+                <Button
+                    android:background="@drawable/card_img"
+                    android:id="@+id/c8"/>
+            </TableRow>
+
+        </TableLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+           >
+
+            <Button
+                android:id="@+id/btn_easy"
+                android:layout_width="300dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:textSize="30dp"
+                android:text="Easy" />
+
+            <Button
+                android:id="@+id/btn_normal"
+                android:layout_width="300dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:textSize="30dp"
+                android:text="Normal" />
+
+            <Button
+                android:id="@+id/btn_hard"
+                android:layout_width="300dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:textSize="30dp"
+                android:text="Hard" />
+        </LinearLayout>
+
+    </FrameLayout>
+
+</LinearLayout>
