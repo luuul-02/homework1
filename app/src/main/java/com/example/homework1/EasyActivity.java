@@ -66,7 +66,7 @@ public class EasyActivity extends AppCompatActivity {
             public void onClick(View v) {
                 while(true){
                     int num = rnd.nextInt(3);
-                    String temp;
+                   String temp;
                     if(cnum[num] == 0){
                         return;
                     }
