@@ -11,8 +11,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="541dp"
-        android:layout_weight="1"
-        android:background="#c8cbfd">
+        android:layout_weight="1">
 
 
         <TextView
@@ -38,64 +37,93 @@
 
         <TableLayout
             android:layout_width="410dp"
-            android:layout_height="300dp"
+            android:layout_height="320dp"
             android:layout_marginTop="150dp"
             android:id="@+id/tb_card"
             android:visibility="visible"
-            android:gravity="center"
-            android:paddingLeft="15dp">
+            android:gravity="center_horizontal">
 
 
             <TableRow>
-
                 <TextView
                     android:id="@+id/c1"
-                    android:background="@drawable/card_img"
+                    android:background="@color/Gray"
                     android:clickable="true"
+                    android:layout_marginRight="5dp"
+                    android:layout_width="100dp"
+                    android:layout_height="150dp"
+                    android:gravity="center_vertical"
                     android:textSize="35dp" />
 
 
                 <TextView
                     android:id="@+id/c2"
-                    android:background="@drawable/card_img"
+                    android:background="@color/Gray"
                     android:clickable="true"
+                    android:layout_width="100dp"
+                    android:layout_height="150dp"
+                    android:layout_marginRight="5dp"
+                    android:gravity="center_vertical"
                     android:textSize="35dp"/>
 
                 <TextView
                     android:id="@+id/c3"
-                    android:background="@drawable/card_img"
+                    android:background="@color/Gray"
                     android:clickable="true"
+                    android:layout_width="100dp"
+                    android:layout_height="150dp"
+                    android:gravity="center_vertical"
                     android:textSize="35dp"/>
                 <TextView
                     android:id="@+id/c4"
-                    android:background="@drawable/card_img"
+                    android:layout_marginLeft="5dp"
+                    android:background="@color/Gray"
                     android:clickable="true"
-                    android:textSize="35dp" />
+                    android:layout_width="100dp"
+                    android:layout_height="150dp"
+                    android:gravity="center_vertical"
+                    android:textSize="35dp"
+                    android:layout_marginBottom="5dp"/>
 
             </TableRow>
 
             <TableRow>
                 <TextView
                     android:id="@+id/c5"
-                    android:background="@drawable/card_img"
+                    android:layout_marginRight="5dp"
+                    android:background="@color/Gray"
                     android:clickable="true"
+                    android:layout_width="100dp"
+                    android:layout_height="150dp"
+                    android:gravity="center_vertical"
                     android:textSize="35dp" />
 
                 <TextView
                     android:id="@+id/c6"
-                    android:background="@drawable/card_img"
+                    android:layout_marginRight="5dp"
+                    android:background="@color/Gray"
                     android:clickable="true"
+                    android:layout_width="100dp"
+                    android:layout_height="150dp"
+                    android:gravity="center_vertical"
                     android:textSize="35dp"/>
 
                 <TextView
                     android:id="@+id/c7"
-                    android:background="@drawable/card_img"
+                    android:background="@color/Gray"
                     android:clickable="true"
+                    android:layout_width="100dp"
+                    android:layout_height="150dp"
+                    android:gravity="center_vertical"
                     android:textSize="35dp"/>
                 <TextView
                     android:id="@+id/c8"
-                    android:background="@drawable/card_img"
+                    android:background="@color/Gray"
+                    android:layout_marginLeft="5dp"
                     android:clickable="true"
+                    android:layout_width="100dp"
+                    android:layout_height="150dp"
+                    android:gravity="center_vertical"
                     android:textSize="35dp"/>
             </TableRow>
 
