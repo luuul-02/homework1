@@ -2,11 +2,14 @@ package com.example.homework1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.TableLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Random;
 
@@ -38,6 +41,35 @@ public class EasyActivity extends AppCompatActivity {
         c7 = (TextView)findViewById(R.id.c7);
         c8 = (TextView)findViewById(R.id.c8);
 
+
+                switch (textView.getId()){
+                    case R.id.c1:
+                        if (isChecked) {
+                           c1.setBackgroundColor(Color.parseColor("#ff0000"));
+                        } else {
+                            c1.setBackgroundColor(Color.parseColor("#ffffff"));
+                        }
+                        break;
+                    case R.id.c2:
+                        if (isChecked ) {
+                            icat.setVisibility(View.VISIBLE);
+                        } else {
+                            icat.setVisibility(View.INVISIBLE);
+                        }
+                        break;
+                    case R.id.c3:
+
+                        /* if(isChecked) Image resindex = r.drawable.snake
+                         * */
+                        if (isChecked) {
+                            isnake.setVisibility(View.VISIBLE);
+                        } else {
+                            isnake.setVisibility(View.INVISIBLE);
+                        }
+                        break;
+                }
+
+        /*
         for(int i=0; i<4; i++){
             cnum[i] = rnd.nextInt(98)+10;
         }
@@ -53,7 +85,7 @@ public class EasyActivity extends AppCompatActivity {
                     }
                     temp = String.valueOf(cnum[num]);
                     c1.setText(temp);
-                    c1.setBackground(R.drawable.card_img2);
+                    
                     break;
                 }
 
@@ -118,6 +150,6 @@ public class EasyActivity extends AppCompatActivity {
 
             }
         });
-
+        */
     }
 }
