@@ -222,6 +222,7 @@ public class NormalActivity extends AppCompatActivity {
             }
         });
 
+        int v;
 
     }
 }
