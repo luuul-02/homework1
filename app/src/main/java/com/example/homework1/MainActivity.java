@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TableLayout;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity{
 
@@ -14,6 +15,7 @@ public class MainActivity extends AppCompatActivity{
     Button btn_easy, btn_normal, btn_hard;
     Button btn_rk;
     TableLayout tb_card;
+    private long backKeyPressedTime = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,5 +50,18 @@ public class MainActivity extends AppCompatActivity{
             }
         });
 
+    }
+
+    public void onBackPressed(){
+        if (System.currentTimeMillis() > backKeyPressedTime + 3000) {
+            backKeyPressedTime = System.currentTimeMillis();
+            Toast.makeText(this, "종료하려면 뒤로가기버튼을 한번더 누르세요", Toast.LENGTH_LONG).show();
+            return;
+        }
+        // 마지막으로 뒤로 가기 버튼을 눌렀던 시간에 2.5초를 더해 현재 시간과 비교 후
+        // 마지막으로 뒤로 가기 버튼을 눌렀던 시간이 2.5초가 지나지 않았으면 종료
+        if (System.currentTimeMillis() <= backKeyPressedTime + 3000) {
+            finish();
+        }
     }
 }

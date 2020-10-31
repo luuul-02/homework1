@@ -3,6 +3,7 @@ package com.example.homework1;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.TaskInfo;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.TableLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -22,20 +24,19 @@ import java.util.Random;
 
 public class EasyActivity extends AppCompatActivity {
 
-    Button btn_easy, btn_normal, btn_hard;
+    private long backKeyPressedTime = 0;
     Button btn_rk;
     TextView c1,c2,c3,c4,c5,c6,c7,c8, intentview;
     TableLayout tb_card;
     List<Integer> cnum = new ArrayList<>();
     List<Integer> c_bottom_num = new ArrayList<>();
-    int check[] = {0, 0, 0, 0, 0, 0, 0, 0};
-    boolean checkTwo[] = {false, false};
     Random rnd = new Random();
 
     boolean click = false;
     String clickTopnum = null;
     String clickBottomnum = null;
     Chronometer chronometer;
+    long time;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,20 +56,31 @@ public class EasyActivity extends AppCompatActivity {
         c7 = (TextView)findViewById(R.id.c7);
         c8 = (TextView)findViewById(R.id.c8);
 
-        Background thread = new Background();
-
         for(int i=0; i<4; i++){
-            cnum.add(rnd.nextInt(99)+10);
+            cnum.add((int)(Math.random() * ((99-10)+1)+10));
         }
         c_bottom_num.addAll(cnum);
         Collections.shuffle(cnum);
         Collections.shuffle(c_bottom_num);
+
+
+        btn_rk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                chronometer.stop();
+                time = (SystemClock.elapsedRealtime()-chronometer.getBase())/1000;
+                Intent intent = new Intent(EasyActivity.this, RankingActivity.class);
+                intent.putExtra("Time", time);
+                startActivity(intent);
+            }
+        });
 
         c1.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("ResourceAsColor")
             @Override
             public void onClick(View v) {
                 chronometer.start();
+
                 String temp;
                 temp = String.valueOf(cnum.get(0));
                 c1.setText(temp);
@@ -79,25 +91,31 @@ public class EasyActivity extends AppCompatActivity {
                     return;
                 }
                 else{
-                    if(click == true && clickBottomnum == temp){
+                    if(clickBottomnum == temp){
                         c1.setBackgroundColor(Color.parseColor("#FF1100"));
                         click = false;
                         clickBottomnum = null;
                         intentview.setBackgroundColor(Color.parseColor("#FF1100"));
                         intentview = null;
-                        return;
+                        chronometer.stop();
+
                     }
                     else{
-                        new Handler().postDelayed(new Runnable() {
+                        new Handler().post(new Runnable() {
                             @Override
                             public void run() {
+                                try {
+                                    Thread.sleep(2000);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
                                 intentview.setText("");
                                 c1.setText("");
                                 intentview = null;
                                 click = false;
                                 clickBottomnum = null;
                             }
-                        }, 2000);
+                        });
                         return;
 
                     }
@@ -111,6 +129,8 @@ public class EasyActivity extends AppCompatActivity {
             @SuppressLint("ResourceAsColor")
             @Override
             public void onClick(View v) {
+                chronometer.start();
+
                 String temp;
                 temp = String.valueOf(cnum.get(1));
                 c2.setText(temp);
@@ -127,19 +147,25 @@ public class EasyActivity extends AppCompatActivity {
                         intentview = null;
                         click = false;
                         clickBottomnum = null;
+                        chronometer.stop();
+
                     }
                     else{
-                        new Handler().postDelayed(new Runnable() {
+                        new Handler().post(new Runnable() {
                             @Override
                             public void run() {
+                                try {
+                                    Thread.sleep(2000);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
                                 intentview.setText("");
                                 c2.setText("");
                                 intentview = null;
                                 click = false;
                                 clickBottomnum = null;
                             }
-                        }, 2000);
-
+                        });
                         return;
                     }
                 }
@@ -151,6 +177,8 @@ public class EasyActivity extends AppCompatActivity {
             @SuppressLint("ResourceAsColor")
             @Override
             public void onClick(View v) {
+                chronometer.start();
+
                 String temp;
                 temp = String.valueOf(cnum.get(2));
                 c3.setText(temp);
@@ -167,19 +195,25 @@ public class EasyActivity extends AppCompatActivity {
                         intentview = null;
                         click = false;
                         clickBottomnum = null;
+                        chronometer.stop();
+
                     }
                     else{
-                        new Handler().postDelayed(new Runnable() {
+                        new Handler().post(new Runnable() {
                             @Override
                             public void run() {
+                                try {
+                                    Thread.sleep(2000);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
                                 intentview.setText("");
                                 c3.setText("");
                                 intentview = null;
                                 click = false;
                                 clickBottomnum = null;
                             }
-                        }, 2000);
-
+                        });
                         return;
                     }
                 }
@@ -189,6 +223,8 @@ public class EasyActivity extends AppCompatActivity {
             @SuppressLint("ResourceAsColor")
             @Override
             public void onClick(View v) {
+                chronometer.start();
+
                 String temp;
                 temp = String.valueOf(cnum.get(3));
                 c4.setText(temp);
@@ -206,19 +242,25 @@ public class EasyActivity extends AppCompatActivity {
                         intentview = null;
                         click = false;
                         clickBottomnum = null;
+                        chronometer.stop();
+
                     }
                     else{
-                        new Handler().postDelayed(new Runnable() {
+                        new Handler().post(new Runnable() {
                             @Override
                             public void run() {
+                                try {
+                                    Thread.sleep(2000);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
                                 intentview.setText("");
                                 c4.setText("");
                                 intentview = null;
                                 click = false;
                                 clickBottomnum = null;
                             }
-                        }, 2000);
-
+                        });
                         return;
                     }
                 }
@@ -229,6 +271,8 @@ public class EasyActivity extends AppCompatActivity {
             @SuppressLint("ResourceAsColor")
             @Override
             public void onClick(View v) {
+                chronometer.start();
+
                 String temp;
                 temp = String.valueOf(c_bottom_num.get(0));
                 c5.setText(temp);
@@ -246,19 +290,25 @@ public class EasyActivity extends AppCompatActivity {
                         intentview = null;
                         click = false;
                         clickBottomnum = null;
+                        chronometer.stop();
+
                     }
                     else{
-                        new Handler().postDelayed(new Runnable() {
+                        new Handler().post(new Runnable() {
                             @Override
                             public void run() {
+                                try {
+                                    Thread.sleep(2000);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
                                 intentview.setText("");
                                 c5.setText("");
                                 intentview = null;
                                 click = false;
-                                clickTopnum = null;
+                                clickBottomnum = null;
                             }
-                        }, 2000);
-
+                        });
                         return;
                     }
                 }
@@ -269,6 +319,8 @@ public class EasyActivity extends AppCompatActivity {
             @SuppressLint("ResourceAsColor")
             @Override
             public void onClick(View v) {
+                chronometer.start();
+
                 String temp;
                 temp = String.valueOf(c_bottom_num.get(1));
                 c6.setText(temp);
@@ -286,18 +338,25 @@ public class EasyActivity extends AppCompatActivity {
                         intentview = null;
                         click = false;
                         clickBottomnum = null;
+                        chronometer.stop();
+
                     }
                     else{
-                        new Handler().postDelayed(new Runnable() {
+                        new Handler().post(new Runnable() {
                             @Override
                             public void run() {
+                                try {
+                                    Thread.sleep(2000);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
                                 intentview.setText("");
                                 c6.setText("");
                                 intentview = null;
                                 click = false;
-                                clickTopnum = null;
+                                clickBottomnum = null;
                             }
-                        }, 2000);
+                        });
                         return;
                     }
                 }
@@ -308,6 +367,8 @@ public class EasyActivity extends AppCompatActivity {
             @SuppressLint("ResourceAsColor")
             @Override
             public void onClick(View v) {
+                chronometer.start();
+
                 String temp;
                 temp = String.valueOf(c_bottom_num.get(2));
                 c7.setText(temp);
@@ -325,19 +386,25 @@ public class EasyActivity extends AppCompatActivity {
                         intentview = null;
                         click = false;
                         clickBottomnum = null;
+                        chronometer.stop();
+
                     }
                     else{
-                        new Handler().postDelayed(new Runnable() {
+                        new Handler().post(new Runnable() {
                             @Override
                             public void run() {
+                                try {
+                                    Thread.sleep(2000);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
                                 intentview.setText("");
                                 c7.setText("");
                                 intentview = null;
                                 click = false;
-                                clickTopnum = null;
+                                clickBottomnum = null;
                             }
-                        }, 2000);
-
+                        });
                         return;
                     }
                 }
@@ -348,6 +415,8 @@ public class EasyActivity extends AppCompatActivity {
             @SuppressLint("ResourceAsColor")
             @Override
             public void onClick(View v) {
+                chronometer.start();
+
                 String temp;
                 temp = String.valueOf(c_bottom_num.get(3));
                 c8.setText(temp);
@@ -365,18 +434,24 @@ public class EasyActivity extends AppCompatActivity {
                         intentview = null;
                         click = false;
                         clickBottomnum = null;
+                        chronometer.stop();
                     }
                     else{
-                        new Handler().postDelayed(new Runnable() {
+                        new Handler().post(new Runnable() {
                             @Override
                             public void run() {
+                                try {
+                                    Thread.sleep(2000);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
                                 intentview.setText("");
                                 c8.setText("");
                                 intentview = null;
                                 click = false;
-                                clickTopnum = null;
+                                clickBottomnum = null;
                             }
-                        }, 2000);
+                        });
                         return;
                     }
                 }
@@ -385,21 +460,14 @@ public class EasyActivity extends AppCompatActivity {
 
         chronometer.stop();
     }
-
-    class Background extends Thread{
-        public void run(){
-            super.run();
-
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    intentview.setText("");
-                    c1.setText("");
-                    intentview = null;
-                    click = false;
-                    clickBottomnum = null;
-                }
-            }, 2000);
+    public void onBackPressed(){
+        if (System.currentTimeMillis() > backKeyPressedTime + 3000) {
+            backKeyPressedTime = System.currentTimeMillis();
+            Toast.makeText(this, "종료하고 홈으로 이동하시겠습니까?.", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if (System.currentTimeMillis() <= backKeyPressedTime + 3000) {
+            finish();
         }
     }
 }
